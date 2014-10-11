@@ -4,5 +4,6 @@
 - include: languages.yml
 - include: smtp.yml
 - include: packages.yml
+- include: ansible_pull.yml
 - include: updates_available.yml
 - include: reboot_required.yml

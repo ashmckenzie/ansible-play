@@ -2,11 +2,22 @@
 - name: Ansible pull | Update apt index
   apt: update_cache=true cache_valid_time=3600
 
+- name: Ansible pull | Install python-dev
+  action: apt pkg=python-dev state=installed
+
+- stat: path=/usr/local/bin/pip
+  register: pip_installed
+
+- name: Ansible pull | Install pip
+  sudo: true
+  shell: curl https://bootstrap.pypa.io/get-pip.py | python -
+  when: pip_installed.stat.isreg is not defined
+
 - name: Ansible pull | Install ansible
-  action: apt pkg=ansible state=installed
+  pip: name=ansible state=latest
 
 - name: Ansible pull | Create local directory to work from
-  action: file path={{workdir}} state=directory owner=root group=root mode=0751
+  action: file path={{ ansible_pull.workdir}} state=directory owner=root group=root mode=0751
 
 - name: Ansible pull | Create crontab entry to clone/pull git repository
   action: template src=templates/ansible_pull/cron.j2 dest=/etc/cron.d/ansible-pull owner=root group=root mode=0644

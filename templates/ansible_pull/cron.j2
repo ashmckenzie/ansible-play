@@ -1,2 +1,3 @@
 # Cron job to git clone/pull a repo and then run locally
-# {{ schedule }} {{ cron_user }} ansible-pull -d {{ workdir }} -U {{ repo_url }} >>{{ logfile }} 2>&1
+{{ ansible_pull.critical_schedule }} {{ ansible_pull.cron_user }} ansible-pull -d {{ ansible_pull.workdir }} -U {{ ansible_pull.repo_url }} -t {{ ansible_pull.critical_tags }} >>{{ ansible_pull.logfile }} 2>&1
+{{ ansible_pull.non_critical_schedule }} {{ ansible_pull.cron_user }} ansible-pull -d {{ ansible_pull.workdir }} -U {{ ansible_pull.repo_url }} >>{{ ansible_pull.logfile }} 2>&1
