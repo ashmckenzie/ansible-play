@@ -1,9 +1,0 @@
----
-- include: security.yml           tags=critical
-- include: kernel.yml             tags=critical
-- include: languages.yml          tags=non_critical
-- include: smtp.yml               tags=non_critical
-- include: packages.yml           tags=non_critical
-- include: ansible_pull.yml       tags=non_critical
-- include: updates_available.yml  tags=daily
-- include: reboot_required.yml    tags=daily
