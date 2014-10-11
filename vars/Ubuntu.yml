@@ -26,6 +26,7 @@ packages_to_install:
   - nmap
   - dstat
   - wget
-  - python-redis
+  - htop
+  - mtr
 packages_to_remove:
   - whoopsie
