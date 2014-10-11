@@ -1,7 +1,6 @@
 ---
 - hosts: all
   sudo: true
-  # accelerate: true
   vars_files:
     - "vars/default.yml"
     - "vars/{{ ansible_distribution }}.yml"
