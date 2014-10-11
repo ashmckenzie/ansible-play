@@ -16,6 +16,8 @@
 - name: Ansible pull | Install ansible
   pip: name=ansible state=latest
 
+- file: path=/etc/ansible state=directory
+
 - name: Ansible pull | Create /etc/ansible/hosts
   template: src=templates/ansible_pull/hosts.j2 dest=/etc/ansible/hosts owner=root group=root mode=0644
 

@@ -1,6 +1,6 @@
 ---
 - name: Security | Setup unattended upgrades
-  template: src=templates/Security/unattended_upgrades.j2 dest=/etc/apt/apt.conf.d/50unattended-upgrades owner=root group=root mode=0644
+  template: src=templates/security/unattended_upgrades.j2 dest=/etc/apt/apt.conf.d/50unattended-upgrades owner=root group=root mode=0644
 
 - name: Security | Bash shellshock | Check if vulnerable
   shell: executable=/bin/bash env x='() { :;}; echo vulnerable'  bash -c "echo this is a test"
