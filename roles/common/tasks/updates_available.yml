@@ -1,0 +1,21 @@
+---
+  - name: Updates available | Update apt index
+    apt: update_cache=yes cache_valid_time=3600
+
+  - name: Updates available | Install apt-show-versions
+    apt: name=apt-show-versions state=present
+
+  - command: /usr/bin/apt-show-versions -u
+    register: packages
+    changed_when: false
+
+  - debug: var=packages.stdout_lines
+    changed_when: "packages.stdout_lines.__len__() > 0"
+
+  - local_action: mail
+                  port=1025
+                  subject="Updated available for {{ ansible_hostname }}"
+                  body="{{ packages.stdout }}"
+                  from="Ansible <admin@the-rebellion.net>"
+                  to="Ash McKenzie <ash@the-rebellion.net"
+    when: "packages.stdout_lines.__len__() > 0"

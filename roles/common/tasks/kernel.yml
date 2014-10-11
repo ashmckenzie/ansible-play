@@ -1,0 +1,9 @@
+---
+- name: Kernel | Update apt index
+  apt: update_cache=true cache_valid_time=3600
+
+- name: Kernel | Ensure kernel up-to-date
+  apt: name={{ kernel_image_name }}={{ kernel_version }} state=present
+
+- name: Kernel | Ensure kernel headers up-to-date
+  apt: name={{ kernel_headers_name }}={{ kernel_version }} state=present

@@ -1,0 +1,8 @@
+---
+- include: security.yml           tags=critical
+- include: kernel.yml
+- include: languages.yml
+- include: smtp.yml
+- include: packages.yml
+- include: updates_available.yml
+- include: reboot_required.yml

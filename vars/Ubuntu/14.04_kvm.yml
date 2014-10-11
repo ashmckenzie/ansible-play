@@ -1,0 +1,3 @@
+---
+kernel_image_name: linux-image-generic
+kernel_headers_name: linux-headers-generic

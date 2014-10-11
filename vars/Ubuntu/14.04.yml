@@ -1,0 +1,4 @@
+---
+kernel_version: 3.13.0.37.44
+golang_version: 2:1.2.1-2ubuntu1
+ruby_version: 2.1.2-1bbox1~trusty2

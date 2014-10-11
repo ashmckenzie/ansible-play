@@ -1,0 +1,12 @@
+---
+locale: en_AU.UTF-8
+timezone: Australia/Melbourne
+packages_to_install: []
+packages_to_remove: []
+additional_packages_to_install: []
+ansible_pull:
+  cron_user: root
+  schedule: '*/15 * * * *'
+  logfile: /var/log/ansible-pull.log
+  workdir: /var/lib/ansible/local
+  repo_url: SUPPLY_YOUR_OWN_GIT_URL_HERE

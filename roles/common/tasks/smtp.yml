@@ -1,0 +1,7 @@
+---
+- name: SMTP | Update apt index
+  apt: update_cache=true cache_valid_time=3600
+
+- name: SMTP | Install postfix
+  apt: name=postfix state=present
+  notify: restart postfix

@@ -1,0 +1,15 @@
+---
+- name: Packages | Update apt index
+  apt: update_cache=true cache_valid_time=3600
+
+- name: Packages | Install essential packages
+  apt: name={{ item }} state=present
+  with_items: packages_to_install
+
+- name: Packages | Install additional packages
+  apt: name={{ item }} state=present
+  with_items: additional_packages_to_install
+
+- name: Packages | Remove undesirable packages
+  apt: name={{ item }} state=absent
+  with_items: packages_to_remove
