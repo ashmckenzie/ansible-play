@@ -20,7 +20,11 @@
   template: src=templates/ansible_pull/hosts.j2 dest=/etc/ansible/hosts owner=root group=root mode=0644
 
 - name: Ansible pull | Create local directory to work from
-  file: path={{ ansible_pull.workdir}} state=directory owner=root group=root mode=0751
+  file: path={{ ansible_pull.workdir}}/{{ item }} state=directory owner=root group=root mode=0751
+  with_items:
+    - critical
+    - non_critical
+    - daily
 
 - name: Ansible pull | Create crontab entry to clone/pull git repository
   template: src=templates/ansible_pull/cron.j2 dest=/etc/cron.d/ansible-pull owner=root group=root mode=0644
