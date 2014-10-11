@@ -1,3 +1,4 @@
-14.04 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/Users/ash/.vagrant.d/insecure_private_key
-12.04 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2200 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/Users/ash/.vagrant.d/insecure_private_key
-;the-rebellion.net
+14.04                 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/Users/ash/.vagrant.d/insecure_private_key
+12.04                 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2200 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/Users/ash/.vagrant.d/insecure_private_key
+the-rebellion.net     ansible_ssh_user=deploy ansible_ssh_private_key_file=/Users/ash/Dropbox/HOME/.ssh/deathstar_deploy_id_rsa
+hilander.io           ansible_ssh_user=deploy ansible_ssh_private_key_file=/Users/ash/Dropbox/HOME/.ssh/hilander_deploy_id_rsa
