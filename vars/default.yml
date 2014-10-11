@@ -6,7 +6,7 @@ packages_to_remove: []
 additional_packages_to_install: []
 ansible_pull:
   cron_user: root
-  critical_schedule: '*/15 * * * *'
+  critical_schedule: '*/5 * * * *'
   critical_tags: critical
   non_critical_schedule: '*/15 * * * *'
   logfile: /var/log/ansible-pull.log
