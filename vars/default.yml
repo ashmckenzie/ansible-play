@@ -2,7 +2,7 @@
 locale: en_AU.UTF-8
 timezone: Australia/Melbourne
 email: ash@the-rebellion.net
-smtp_server_available: false
+smtp_server_available: true
 packages_to_install: []
 packages_to_remove: []
 additional_packages_to_install: []
