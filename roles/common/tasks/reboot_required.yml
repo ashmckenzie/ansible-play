@@ -6,7 +6,6 @@
   changed_when: reboot_required.stat.isreg is defined and reboot_required.stat.isreg == true
 
 - local_action: mail
-                port=1025
                 subject="Reboot required for {{ ansible_hostname }}"
                 body="{{ ansible_hostname }} needs a reboot"
                 from="Ansible <admin@the-rebellion.net>"
