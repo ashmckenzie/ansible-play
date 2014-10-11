@@ -8,10 +8,10 @@ ansible_pull:
   cron_user: root
   critical_schedule: '*/5 * * * *'
   critical_tags: critical
-  non_critical_schedule: '*/15 * * * *'
+  non_critical_schedule: '*/18 * * * *'
   non_critical_tags: non_critical
-  daily_schedule: '30 6 * * *'
+  daily_schedule: '32 6 * * *'
   daily_tags: daily
   logfile: /var/log/ansible-pull.log
   workdir: /var/lib/ansible/local
-  repo_url: git@github.com:ashmckenzie/ansible-play.git
+  repo_url: https://github.com/ashmckenzie/ansible-play.git

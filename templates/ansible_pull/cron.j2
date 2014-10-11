@@ -1,5 +1,5 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # Cron job to git clone/pull a repo and then run locally
-{{ ansible_pull.critical_schedule }} {{ ansible_pull.cron_user }} ansible-pull --only-if-changed -d {{ ansible_pull.workdir }} -U {{ ansible_pull.repo_url }} -t {{ ansible_pull.critical_tags }} >>{{ ansible_pull.logfile }} 2>&1
-{{ ansible_pull.non_critical_schedule }} {{ ansible_pull.cron_user }} ansible-pull --only-if-changed -d {{ ansible_pull.workdir }} -U {{ ansible_pull.repo_url }} -t {{ ansible_pull.non_critical_tags }} >>{{ ansible_pull.logfile }} 2>&1
-{{ ansible_pull.daily_schedule }} {{ ansible_pull.cron_user }} ansible-pull --only-if-changed -d {{ ansible_pull.workdir }} -U {{ ansible_pull.repo_url }} -t {{ ansible_pull.daily_tags }} >>{{ ansible_pull.logfile }} 2>&1
+{{ ansible_pull.critical_schedule }} {{ ansible_pull.cron_user }} ansible-pull --only-if-changed -i {{ ansible_pull.workdir }}/localhosts -d {{ ansible_pull.workdir }} -U {{ ansible_pull.repo_url }} -t {{ ansible_pull.critical_tags }} >>{{ ansible_pull.logfile }} 2>&1
+{{ ansible_pull.non_critical_schedule }} {{ ansible_pull.cron_user }} ansible-pull --only-if-changed -i {{ ansible_pull.workdir }}/localhosts -d {{ ansible_pull.workdir }} -U {{ ansible_pull.repo_url }} -t {{ ansible_pull.non_critical_tags }} >>{{ ansible_pull.logfile }} 2>&1
+{{ ansible_pull.daily_schedule }} {{ ansible_pull.cron_user }} ansible-pull --only-if-changed -i {{ ansible_pull.workdir }}/localhosts -d {{ ansible_pull.workdir }} -U {{ ansible_pull.repo_url }} -t {{ ansible_pull.daily_tags }} >>{{ ansible_pull.logfile }} 2>&1
