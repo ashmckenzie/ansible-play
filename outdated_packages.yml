@@ -1,0 +1,10 @@
+---
+- hosts: all
+  sudo: true
+  vars_files:
+    - "vars/default.yml"
+    - "vars/{{ ansible_distribution }}.yml"
+    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}.yml"
+    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_virtualization_type }}.yml"
+  tasks:
+    - include: tasks/updates_available.yml
