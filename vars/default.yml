@@ -1,6 +1,7 @@
 ---
 locale: en_AU.UTF-8
 timezone: Australia/Melbourne
+email: ash@the-rebellion.net
 packages_to_install: []
 packages_to_remove: []
 additional_packages_to_install: []

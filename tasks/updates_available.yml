@@ -13,7 +13,7 @@
     changed_when: "packages.stdout_lines.__len__() > 0"
 
   - local_action: mail
-                  subject="Updated available for {{ ansible_hostname }}"
+                  subject="Updates available for {{ ansible_hostname }}"
                   body="{{ packages.stdout }}"
                   from="Ansible <admin@the-rebellion.net>"
                   to="Ash McKenzie <ash@the-rebellion.net"
