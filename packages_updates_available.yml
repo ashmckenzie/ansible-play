@@ -1,15 +1,13 @@
 ---
 - hosts: all
   sudo: true
+  # accelerate: true
   vars_files:
     - "vars/default.yml"
     - "vars/{{ ansible_distribution }}.yml"
     - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}.yml"
     - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_virtualization_type }}.yml"
+  vars:
+    - smtp_server_available: false
   tasks:
-    - include: tasks/languages.yml
-    - include: tasks/smtp.yml
-    - include: tasks/packages.yml
-    - include: tasks/ansible_pull.yml
     - include: tasks/packages_updates_available.yml
-    - include: tasks/reboot_required.yml

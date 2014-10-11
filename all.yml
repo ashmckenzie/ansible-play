@@ -13,5 +13,5 @@
     - include: tasks/smtp.yml
     - include: tasks/packages.yml
     - include: tasks/ansible_pull.yml
-    - include: tasks/updates_available.yml
+    - include: tasks/packages_updates_available.yml
     - include: tasks/reboot_required.yml

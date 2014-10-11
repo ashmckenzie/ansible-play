@@ -17,4 +17,4 @@
                   body="{{ packages.stdout }}"
                   from="Ansible <admin@the-rebellion.net>"
                   to="Ash McKenzie <ash@the-rebellion.net"
-    when: "packages.stdout_lines.__len__() > 0"
+    when: "packages.stdout_lines.__len__() > 0 and smtp_server_available"

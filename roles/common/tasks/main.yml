@@ -1,0 +1,4 @@
+# ---
+# - shell: nc -w 3 -n 127.0.0.1 25 > /dev/null 2>&1
+#   register: smtp_server_available
+#   changed_when: false

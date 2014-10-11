@@ -1,6 +1,7 @@
 ---
 - stat: path=/var/run/reboot-required
   register: reboot_required
+  changed_when: false
 
 - debug: var=reboot_required.stat.isreg
   changed_when: reboot_required.stat.isreg is defined and reboot_required.stat.isreg == true
