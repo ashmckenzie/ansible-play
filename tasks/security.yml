@@ -6,6 +6,7 @@
   shell: curl -s https://shellshocker.net/shellshock_test.sh | bash > /dev/null 2>&1
   ignore_errors: true
   register: bash_shellshock_vulnerable
+  changed_when: "bash_shellshock_vulnerable.rc != 0"
 
 - name: Security | Bash shellshock | Update apt index
   apt: update_cache=true cache_valid_time=3600
@@ -17,6 +18,8 @@
 
 - name: Security | Bash shellshock | Double check if vulnerable
   shell: curl -s https://shellshocker.net/shellshock_test.sh | bash > /dev/null 2>&1
+  when: "bash_shellshock_vulnerable.rc != 0"
   ignore_errors: true
   register: bash_shellshock_vulnerable
+  changed_when: "bash_shellshock_vulnerable.rc != 0"
   failed_when: "bash_shellshock_vulnerable.rc != 0"
