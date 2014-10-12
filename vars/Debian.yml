@@ -1,8 +1,5 @@
 ---
 smtp_server_available: true
-ansible_pull:
-  critical_schedule: '0 * * * *'
-  non_critical_schedule: '15 */3 * * *'
 packages_to_install:
   - mailutils
   - apt-show-versions
