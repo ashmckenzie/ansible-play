@@ -3,20 +3,22 @@
   template: src=templates/security/unattended_upgrades.j2 dest=/etc/apt/apt.conf.d/50unattended-upgrades owner=root group=root mode=0644
 
 - name: Security | Bash shellshock | Check if vulnerable
-  shell: executable=/bin/bash env x='() { :;}; echo vulnerable'  bash -c "echo this is a test"
-  register: test_vuln
+  shell: curl -s https://shellshocker.net/shellshock_test.sh | bash > /dev/null 2>&1
+  ignore_errors: true
+  register: bash_shellshock_vulnerable
   changed_when: false
 
 - name: Security | Bash shellshock | Update apt index
   apt: update_cache=true cache_valid_time=3600
-  when: "'vulnerable' in test_vuln.stdout"
+  when: "bash_shellshock_vulnerable.rc != 0"
 
 - name: Security | Bash shellshock | Apply security update if we are vulnerable
   apt: name=bash state=latest update_cache=true
-  when: "'vulnerable' in test_vuln.stdout"
+  when: "bash_shellshock_vulnerable.rc != 0"
 
-- name: Security | Bash shellshock | Check again and fail if we are still vulnerable
-  shell: executable=/bin/bash env x='() { :;}; echo vulnerable'  bash -c "echo this is a test"
-  when: "'vulnerable' in test_vuln.stdout"
-  register: test_vuln
-  failed_when: "'vulnerable' in test_vuln.stdout"
+- name: Security | Bash shellshock | Double check if vulnerable
+  shell: curl -s https://shellshocker.net/shellshock_test.sh | bash > /dev/null 2>&1
+  ignore_errors: true
+  register: bash_shellshock_vulnerable
+  changed_when: false
+  failed_when: "bash_shellshock_vulnerable.rc != 0"
