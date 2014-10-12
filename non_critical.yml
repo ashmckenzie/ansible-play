@@ -11,6 +11,8 @@
     - include: tasks/smtp.yml
     - include: tasks/packages.yml
     - include: tasks/ansible_pull.yml
+  handlers:
+    - include: handlers/smtp.yml
 
 - hosts: Ubuntu
   sudo: true
