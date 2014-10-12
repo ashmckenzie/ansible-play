@@ -5,6 +5,7 @@
     - "vars/default.yml"
     - "vars/{{ ansible_distribution }}.yml"
     - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}.yml"
+    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_architecture }}.yml"
     - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_virtualization_type }}.yml"
   vars:
     - smtp_server_available: false

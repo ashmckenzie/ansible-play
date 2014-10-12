@@ -1,0 +1,4 @@
+---
+kernel_version: 3.12.9-1+rpi1
+kernel_image_name: linux-image-3.12-1-rpi
+kernel_headers_name: linux-headers-3.12-1-rpi
