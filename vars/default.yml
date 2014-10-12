@@ -3,6 +3,7 @@ locale: en_AU.UTF-8
 timezone: Australia/Melbourne
 email: ash@the-rebellion.net
 smtp_server_available: false
+apt_cache_valid_time: 3600
 packages_to_install: []
 packages_to_remove: []
 additional_packages_to_install: []

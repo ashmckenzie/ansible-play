@@ -1,12 +1,8 @@
 ---
 - hosts: all
   sudo: true
-  vars_files:
-    - "vars/default.yml"
-    - "vars/{{ ansible_distribution }}.yml"
-    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}.yml"
-    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_architecture }}.yml"
-    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_virtualization_type }}.yml"
+  roles:
+    - common
   tasks:
     - include: tasks/smtp.yml
     - include: tasks/packages.yml
@@ -16,11 +12,7 @@
 
 - hosts: Ubuntu
   sudo: true
-  vars_files:
-    - "vars/default.yml"
-    - "vars/{{ ansible_distribution }}.yml"
-    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}.yml"
-    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_architecture }}.yml"
-    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_virtualization_type }}.yml"
+  roles:
+    - common
   tasks:
     - include: tasks/languages.yml

@@ -8,12 +8,8 @@
   register: bash_shellshock_vulnerable
   changed_when: "bash_shellshock_vulnerable.rc != 0"
 
-- name: Security | Bash shellshock | Update apt index
-  apt: update_cache=true cache_valid_time=3600
-  when: "bash_shellshock_vulnerable.rc != 0"
-
 - name: Security | Bash shellshock | Apply security update if we are vulnerable
-  apt: name=bash state=latest update_cache=true
+  apt: name=bash state=latest
   when: "bash_shellshock_vulnerable.rc != 0"
 
 - name: Security | Bash shellshock | Double check if vulnerable

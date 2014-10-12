@@ -1,4 +1,15 @@
-# ---
+---
+- include_vars: "{{ item }}"
+  with_items:
+    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_virtualization_type }}.yml"
+    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_architecture }}.yml"
+    - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}.yml"
+    - "vars/{{ ansible_distribution }}.yml"
+    - "vars/default.yml"
+
+- name: Common | Update apt index
+  apt: update_cache=true cache_valid_time={{ apt_cache_valid_time }}
+
 # - shell: nc -w 3 -n 127.0.0.1 25 > /dev/null 2>&1
 #   register: smtp_server_available
 #   changed_when: false
