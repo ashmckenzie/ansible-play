@@ -10,9 +10,17 @@
   handlers:
     - include: handlers/smtp.yml
 
-- hosts: Ubuntu
+- hosts: ubuntu
   sudo: true
   roles:
     - common
   tasks:
-    - include: tasks/languages.yml
+    - include: tasks/ruby.yml
+
+- hosts: raspbian
+  sudo: true
+  roles:
+    - common
+  tasks:
+    - include: tasks/golang.yml
+

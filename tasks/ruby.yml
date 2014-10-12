@@ -1,0 +1,6 @@
+---
+- name: Ruby | Brightbox Ruby APT repo
+  apt_repository: repo='ppa:brightbox/ruby-ng'
+
+- name: Ruby | Ruby
+  apt: name=ruby2.1={{ ruby_version }} state=present

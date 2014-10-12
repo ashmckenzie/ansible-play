@@ -7,9 +7,8 @@
   changed_when: false
 
 - name: Ansible pull | Install pip
-  sudo: true
   shell: curl https://bootstrap.pypa.io/get-pip.py | python -
-  when: pip_installed.stat.isreg is not defined
+  when: pip_installed.stat.exists == false
 
 - name: Ansible pull | Install ansible
   pip: name=ansible state=latest
