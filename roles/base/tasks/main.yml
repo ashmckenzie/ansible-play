@@ -1,5 +1,5 @@
 ---
-- include: smtp.yml
-- include: packages.yml
-- include: golang.yml
-- include: ansible_pull.yml
+- include: ansible.yml    tags=ansible
+- include: postfix.yml    tags=postfix
+- include: packages.yml   tags=packages
+- include: golang.yml     tags=golang

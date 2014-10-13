@@ -1,32 +1,30 @@
 ---
-- name: Ansible pull | Install python-dev
-  action: apt pkg=python-dev state=installed
-
 - stat: path=/usr/local/bin/pip
   register: pip_installed
   changed_when: false
 
-- name: Ansible pull | Install pip
+- name: Ansible | Install pip
   shell: curl https://bootstrap.pypa.io/get-pip.py | python -
   when: pip_installed.stat.exists == false
 
-- name: Ansible pull | Install ansible
+- name: Ansible | Install ansible
   pip: name=ansible state=latest
 
-- file: path=/etc/ansible state=directory
+- name: Ansible | Create /etc/ansible
+  file: path=/etc/ansible state=directory
 
-- name: Ansible pull | Create /etc/ansible/hosts
+- name: Ansible | Create /etc/ansible/hosts
   template: src=templates/ansible_pull/hosts.j2 dest=/etc/ansible/hosts owner=root group=root mode=0644
 
-- name: Ansible pull | Create local directory to work from
+- name: Ansible | Create work directory
   file: path={{ ansible_pull.workdir}}/{{ item }} state=directory owner=root group=root mode=0751
   with_items:
     - critical
     - non_critical
     - daily
 
-- name: Ansible pull | Create crontab entry to clone/pull git repository
+- name: Ansible | Create crontab
   template: src=templates/ansible_pull/cron.j2 dest=/etc/cron.d/ansible-pull owner=root group=root mode=0644
 
-- name: Ansible pull | Create logrotate entry for ansible-pull.log
+- name: Ansible | Create logrotate config
   template: src=templates/ansible_pull/logrotate.j2 dest=/etc/logrotate.d/ansible-pull owner=root group=root mode=0644

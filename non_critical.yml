@@ -7,3 +7,8 @@
   tasks:
     - include: tasks/ruby.yml  tags=ruby
       when: "ansible_distribution == 'Ubuntu'"
+
+- hosts: web
+  sudo: true
+  roles:
+    - web
