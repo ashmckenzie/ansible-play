@@ -3,7 +3,5 @@
   sudo: true
   roles:
     - common
-  vars:
-    - smtp_server_available: false
   tasks:
     - include: tasks/packages_updates_available.yml

@@ -1,12 +1,12 @@
 ---
 - name: Packages | Install essential packages
   apt: name={{ item }} state=present
-  with_items: packages_to_install
+  with_items: apt.packages_to_install
 
 - name: Packages | Install additional packages
   apt: name={{ item }} state=present
-  with_items: additional_packages_to_install
+  with_items: apt.additional_packages_to_install
 
 - name: Packages | Remove undesirable packages
   apt: name={{ item }} state=absent
-  with_items: packages_to_remove
+  with_items: apt.packages_to_remove
