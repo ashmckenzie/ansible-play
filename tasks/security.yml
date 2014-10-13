@@ -3,10 +3,17 @@
   template: src=templates/security/unattended_upgrades.j2 dest=/etc/apt/apt.conf.d/50unattended-upgrades owner=root group=root mode=0644
 
 - name: Security | Bash shellshock | Check if vulnerable
-  shell: curl -s https://shellshocker.net/shellshock_test.sh | bash > /dev/null 2>&1
+  shell: curl -s https://shellshocker.net/shellshock_test.sh | bash
   ignore_errors: true
   register: bash_shellshock_vulnerable
-  changed_when: "bash_shellshock_vulnerable.rc != 0"
+  changed_when: false
+
+- action: mail
+    subject="Bash vulnerable on {{ ansible_hostname }}"
+    body="{{ bash_shellshock_vulnerable.stdout }}"
+    from="Ansible <admin@the-rebellion.net>"
+    to="Ash McKenzie <ash@the-rebellion.net"
+  when: "bash_shellshock_vulnerable.rc != 0"
 
 - name: Security | Bash shellshock | Apply security update if we are vulnerable
   apt: name=bash state=latest
