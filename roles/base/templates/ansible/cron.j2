@@ -1,0 +1,10 @@
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Critical
+{{ ansible.critical_schedule }} {{ ansible.cron_user }} ansible-pull --only-if-changed -d {{ ansible.workdir }}/critical -U {{ ansible.repo_url }} {{ ansible.critical_playbook }} >>{{ ansible.logfile }} 2>&1
+
+# Non critical
+{{ ansible.non_critical_schedule }} {{ ansible.cron_user }} ansible-pull --only-if-changed -d {{ ansible.workdir }}/non_critical -U {{ ansible.repo_url }} {{ ansible.non_critical_playbook }} >>{{ ansible.logfile }} 2>&1
+
+# Daily
+{{ ansible.daily_schedule }} {{ ansible.cron_user }} ansible-pull --only-if-changed -d {{ ansible.workdir }}/daily -U {{ ansible.repo_url }} {{ ansible.daily_playbook }} >>{{ ansible.logfile }} 2>&1

@@ -7,7 +7,7 @@ apt:
   packages_to_install: []
   packages_to_remove: []
   additional_packages_to_install: []
-ansible_pull:
+ansible:
   cron_user: root
   critical_schedule: '*/15 * * * *'
   critical_playbook: critical.yml

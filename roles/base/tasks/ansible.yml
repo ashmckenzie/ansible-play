@@ -14,17 +14,17 @@
   file: path=/etc/ansible state=directory
 
 - name: Ansible | Create /etc/ansible/hosts
-  template: src=templates/ansible_pull/hosts.j2 dest=/etc/ansible/hosts owner=root group=root mode=0644
+  template: src=ansible/hosts.j2 dest=/etc/ansible/hosts owner=root group=root mode=0644
 
 - name: Ansible | Create work directory
-  file: path={{ ansible_pull.workdir}}/{{ item }} state=directory owner=root group=root mode=0751
+  file: path={{ ansible.workdir }}/{{ item }} state=directory owner=root group=root mode=0751
   with_items:
     - critical
     - non_critical
     - daily
 
 - name: Ansible | Create crontab
-  template: src=templates/ansible_pull/cron.j2 dest=/etc/cron.d/ansible-pull owner=root group=root mode=0644
+  template: src=ansible/cron.j2 dest=/etc/cron.d/ansible-pull owner=root group=root mode=0644
 
 - name: Ansible | Create logrotate config
-  template: src=templates/ansible_pull/logrotate.j2 dest=/etc/logrotate.d/ansible-pull owner=root group=root mode=0644
+  template: src=ansible/logrotate.j2 dest=/etc/logrotate.d/ansible-pull owner=root group=root mode=0644
