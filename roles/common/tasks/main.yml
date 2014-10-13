@@ -4,8 +4,10 @@
     - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_virtualization_type }}.yml"
     - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}_{{ ansible_architecture }}.yml"
     - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}.yml"
+    - "vars/{{ ansible_distribution }}/{{ ansible_architecture }}.yml"
     - "vars/{{ ansible_distribution }}.yml"
     - "vars/default.yml"
+  tags: common
 
 - name: Common | Update apt index
   apt: update_cache=true cache_valid_time={{ apt_cache_valid_time }}

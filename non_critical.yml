@@ -7,6 +7,7 @@
     - include: tasks/smtp.yml
     - include: tasks/packages.yml
     - include: tasks/ansible_pull.yml
+    - include: tasks/golang.yml
   handlers:
     - include: handlers/smtp.yml
 
@@ -15,12 +16,4 @@
   roles:
     - common
   tasks:
-    - include: tasks/ruby.yml
-
-- hosts: raspbian
-  sudo: true
-  roles:
-    - common
-  tasks:
-    - include: tasks/golang.yml
-
+    - include: tasks/ruby.yml  tags=ruby

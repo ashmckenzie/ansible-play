@@ -1,6 +1,14 @@
 ---
 - name: Ruby | Brightbox Ruby APT repo
-  apt_repository: repo='ppa:brightbox/ruby-ng'
+  apt_repository: repo='ppa:brightbox/ruby-ng-experimental'
 
-- name: Ruby | Ruby
-  apt: name=ruby2.1={{ ruby_version }} state=present
+- name: Ruby | Install Ruby
+  apt: name=ruby2.1={{ ruby.version }} state=present
+
+- shell: gem list -i bundler --version {{ ruby.bundler_version }}
+  changed_when: false
+  register: bundler_installed
+
+- name: Ruby | Install Bundler
+  shell: gem install bundler -v={{ ruby.bundler_version }}
+  when: "bundler_installed.rc != 0"
