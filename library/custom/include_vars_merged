@@ -1,0 +1,38 @@
+# -*- mode: python -*-
+
+# Ansible is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
+
+DOCUMENTATION = '''
+---
+author: Daniel Schroeder
+module: include_vars_merged
+short_description: Load and merge variables from multiple files, dynamically within a task.
+description:
+     - Loads variables from multiple YAML files dynamically during task runtime.
+options:
+  free-form:
+    description:
+       - The file name from which variables should be loaded, if called from a role it will look for 
+         the file in vars/ subdirectory of the role, otherwise the path would be relative to playbook. An absolute path can also be provided.
+    required: true
+'''
+
+EXAMPLES = """
+# Conditionally decide to load in variables when x is 0, otherwise do not.
+- include_vars_merged: contingency_plan.yml
+  when: x == 0
+
+# Load a variable file based on the OS type, or a default if not found.
+- include_vars_merged: "{{ item }}"
+  with_first_found:
+   - "{{ ansible_distribution }}.yml"
+   - "{{ ansible_os_family }}.yml"
+   - "default.yml"
+
+"""
