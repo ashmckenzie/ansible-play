@@ -3,17 +3,7 @@
   sudo: true
   roles:
     - common
-  tasks:
-    - include: tasks/smtp.yml
-    - include: tasks/packages.yml
-    - include: tasks/ansible_pull.yml
-    - include: tasks/golang.yml
-  handlers:
-    - include: handlers/smtp.yml
-
-- hosts: ubuntu
-  sudo: true
-  roles:
-    - common
+    - base
   tasks:
     - include: tasks/ruby.yml  tags=ruby
+      when: "ansible_distribution == 'Ubuntu'"

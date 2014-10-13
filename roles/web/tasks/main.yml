@@ -1,0 +1,3 @@
+---
+- name: Web | nginx APT repo
+  apt_repository: repo='ppa:nginx/stable'

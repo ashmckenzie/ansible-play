@@ -1,0 +1,5 @@
+---
+- include: smtp.yml
+- include: packages.yml
+- include: golang.yml
+- include: ansible_pull.yml

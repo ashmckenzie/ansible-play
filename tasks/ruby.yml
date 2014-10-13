@@ -6,6 +6,7 @@
   apt: name=ruby2.1={{ ruby.version }} state=present
 
 - shell: gem list -i bundler --version {{ ruby.bundler_version }}
+  ignore_errors: true
   changed_when: false
   register: bundler_installed
 
