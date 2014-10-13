@@ -8,7 +8,7 @@
   when: pip_installed.stat.exists == false
 
 - name: Ansible | Install ansible
-  pip: name=ansible state=latest
+  pip: name=ansible version=1.7.2 state=present
 
 - name: Ansible | Create /etc/ansible
   file: path=/etc/ansible state=directory
@@ -17,7 +17,7 @@
   template: src=ansible/hosts.j2 dest=/etc/ansible/hosts owner=root group=root mode=0644
 
 - name: Ansible | Create work directory
-  file: path={{ ansible.workdir }}/{{ item }} state=directory owner=root group=root mode=0751
+  file: path={{ ansible_pull.workdir }}/{{ item }} state=directory owner=root group=root mode=0751
   with_items:
     - critical
     - non_critical

@@ -2,7 +2,6 @@
 - name: Variables | Load
   include_vars_merged: "{{ item }}"
   with_items:
-    - "vars/default.yml"
     - "vars/{{ ansible_distribution }}.yml"
     - "vars/{{ ansible_distribution }}/{{ ansible_architecture }}.yml"
     - "vars/{{ ansible_distribution }}/{{ ansible_distribution_version }}.yml"
