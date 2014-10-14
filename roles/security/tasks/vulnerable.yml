@@ -1,5 +1,5 @@
 ---
-- name: Bash shellshock | Check if vulnerable
+- name: Vulnerable | Bash shellshock | Check if vulnerable
   shell: curl -s https://shellshocker.net/shellshock_test.sh | bash
   ignore_errors: true
   register: bash_shellshock_vulnerable
@@ -12,11 +12,11 @@
     to="Ash McKenzie <ash@the-rebellion.net"
   when: "bash_shellshock_vulnerable.rc != 0"
 
-- name: Bash shellshock | Apply security update if we are vulnerable
+- name: Vulnerable | Bash shellshock | Apply security update if we are vulnerable
   apt: name=bash state=latest
   when: "bash_shellshock_vulnerable.rc != 0"
 
-- name: Bash shellshock | Double check if vulnerable
+- name: Vulnerable | Bash shellshock | Double check if vulnerable
   shell: curl -s https://shellshocker.net/shellshock_test.sh | bash > /dev/null 2>&1
   when: "bash_shellshock_vulnerable.rc != 0"
   ignore_errors: true

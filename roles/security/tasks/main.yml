@@ -1,4 +1,4 @@
 ---
 - include: vulnerable.yml    tags=security,vulnerable
-- include: apt.yml           tags=security,apt
 - include: kernel.yml        tags=security,kernel
+- include: apt.yml           tags=security,apt
