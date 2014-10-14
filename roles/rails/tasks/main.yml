@@ -1,2 +1,2 @@
 ---
-- include: ruby.yml  tags=ruby
+- include: ruby.yml  tags=rails,ruby
