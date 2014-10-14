@@ -3,4 +3,4 @@
   apt_repository: repo='ppa:nginx/stable'
 
 - name: Nginx | Install
-  apt: name=nginx-extras version=1.6.2-2 state=present
+  apt: name=nginx-extras state=present

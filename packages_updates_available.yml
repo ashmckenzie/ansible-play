@@ -1,7 +1,0 @@
----
-- hosts: all
-  sudo: true
-  roles:
-    - common
-  tasks:
-    - include: tasks/packages_updates_available.yml
