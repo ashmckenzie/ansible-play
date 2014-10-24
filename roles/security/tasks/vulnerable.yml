@@ -1,5 +1,6 @@
 ---
 - name: Vulnerable | Bash shellshock | Check if vulnerable
+  sudo: false
   shell: curl -s https://shellshocker.net/shellshock_test.sh | bash
   ignore_errors: true
   register: bash_shellshock_vulnerable
