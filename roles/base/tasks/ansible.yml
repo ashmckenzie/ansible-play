@@ -1,4 +1,10 @@
 ---
+- name: Ansible | Install Python and dev
+  apt: name={{ item }} state=present
+  with_items:
+    - python
+    - python-dev
+
 - stat: path=/usr/local/bin/pip
   register: pip_installed
   changed_when: false

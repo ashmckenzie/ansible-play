@@ -13,6 +13,8 @@ apt:
     - tmux
     - vim-nox
     - git
+    - python
+    - python-dev
     - python-software-properties
     - build-essential
     - make
