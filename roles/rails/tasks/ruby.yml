@@ -3,7 +3,10 @@
   apt_repository: repo='ppa:brightbox/ruby-ng-experimental'
 
 - name: Ruby | Install Ruby
-  apt: name=ruby2.1={{ ruby.version }} state=present
+  apt: name={{ item }}={{ ruby.version }} state=present
+  with_items:
+    - ruby2.1
+    - ruby2.1-dev
 
 - shell: gem list -i bundler --version {{ ruby.bundler_version }}
   ignore_errors: true
