@@ -1,6 +1,4 @@
 ---
-kernel:
-  version: 3.13.0.39.46
 ruby:
   version: 2.1.5-1bbox1~trusty1
   bundler_version: 1.7.3

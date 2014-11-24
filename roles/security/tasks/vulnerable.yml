@@ -7,7 +7,7 @@
   changed_when: false
 
 - action: mail
-    subject="Bash vulnerable on {{ ansible_hostname }}"
+    subject="Bash is potentially vulnerable on {{ ansible_hostname }}"
     body="{{ bash_shellshock_vulnerable.stdout }}"
     from="Ansible <admin@the-rebellion.net>"
     to="Ash McKenzie <ash@the-rebellion.net"
