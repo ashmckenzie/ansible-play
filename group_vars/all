@@ -41,6 +41,7 @@ apt:
     - fail2ban
     - vnstat
     - stunnel4
+    - dpkg-repack
 ansible_pull:
   shell: /bin/bash
   cron_user: root

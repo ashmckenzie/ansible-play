@@ -3,6 +3,7 @@
   sudo: true
   roles:
     - common
+    - maintenance
   tasks:
     - include: tasks/packages_updates_available.yml
     - include: tasks/reboot_required.yml
