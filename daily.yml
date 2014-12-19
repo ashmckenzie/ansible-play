@@ -1,9 +1,9 @@
 ---
-- hosts: all
+- hosts: linux
   sudo: true
   roles:
     - common
-    - maintenance
+    - linux/maintenance
   tasks:
     - include: tasks/packages_updates_available.yml
     - include: tasks/reboot_required.yml

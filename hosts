@@ -1,27 +1,26 @@
-[vagrant]
-14.04
-12.04
+[linux:children]
+home_linux
+digital_ocean
+
+[db:children]
+digital_ocean
+
+[web:children]
+digital_ocean
+
+[mac:children]
+mac_home
+
+[mac_home]
+imac.local
 
 [digital_ocean]
 ssh.the-rebellion.net
 ssh.hilander.io
 
-[db]
-14.04
-12.04
-ssh.the-rebellion.net
-ssh.hilander.io
-
-[web]
-14.04
-12.04
-ssh.the-rebellion.net
-ssh.hilander.io
-media-centre
-
 [raspbian]
 raspberrypi
 
-[home]
+[home_linux]
 raspberrypi
 media-centre

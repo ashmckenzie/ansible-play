@@ -1,10 +1,10 @@
 ---
-- hosts: all
+- hosts: linux
   sudo: true
   roles:
     - base
 
-- hosts: web
+- hosts: linux
   sudo: true
   roles:
     - web

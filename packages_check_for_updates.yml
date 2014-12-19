@@ -1,7 +1,14 @@
 ---
-- hosts: all
+- hosts: linux
   sudo: true
   roles:
     - common
   tasks:
-    - include: tasks/packages_updates_available.yml
+    - include: tasks/linux/packages_updates_available.yml
+
+- hosts: mac
+  sudo: true
+  roles:
+    - common
+  tasks:
+    - include: tasks/mac/packages_updates_available.yml
