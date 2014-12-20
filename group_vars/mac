@@ -10,8 +10,10 @@ homebrew:
     - git
     - python
     - tig
-    - ack-grep
+    - ack
     - mutt
     - nmap
     - wget
     - htop
+    - rbenv
+    - ruby-build
