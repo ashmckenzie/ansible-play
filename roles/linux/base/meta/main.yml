@@ -1,3 +1,4 @@
 ---
 dependencies:
-  - { role: common }
+  - { role: ../roles/common }
+  - { role: ../roles/linux/common }

@@ -3,6 +3,7 @@
   sudo: true
   roles:
     - common
+    - ../roles/linux/common
   tasks:
     - include: tasks/linux/packages_updates_available.yml
 
@@ -10,5 +11,6 @@
   sudo: true
   roles:
     - common
+    - ../roles/mac/common
   tasks:
     - include: tasks/mac/packages_updates_available.yml

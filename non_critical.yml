@@ -2,10 +2,15 @@
 - hosts: linux
   sudo: true
   roles:
-    - base
+    - ../roles/linux/base
 
 - hosts: linux
   sudo: true
   roles:
-    - web
-    - rails
+    - ../roles/linux/web
+    - ../roles/linux/rails
+
+- hosts: mac
+  sudo: true
+  roles:
+    - ../roles/mac/base

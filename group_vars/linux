@@ -1,0 +1,40 @@
+---
+apt:
+  cache_valid_time: 3600
+  packages_to_remove: []
+  additional_packages_to_install: []
+  packages_to_install:
+    - mailutils
+    - apt-show-versions
+    - tmux
+    - vim-nox
+    - git
+    - python
+    - python-dev
+    - python-software-properties
+    - build-essential
+    - make
+    - libreadline-dev
+    - zlib1g-dev
+    - libssl-dev
+    - libreadline6-dev
+    - libyaml-dev
+    - tig
+    - libxml2-dev
+    - libxslt1-dev
+    - ack-grep
+    - ufw
+    - mutt
+    - apt-transport-https
+    - ntp
+    - zsh
+    - rsnapshot
+    - nmap
+    - dstat
+    - wget
+    - htop
+    - mtr
+    - fail2ban
+    - vnstat
+    - stunnel4
+    - dpkg-repack

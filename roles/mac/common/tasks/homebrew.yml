@@ -1,0 +1,17 @@
+---
+- command: brew --prefix
+  register: brew_prefix
+  changed_when: false
+
+- name: Homebrew | Install
+  shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  when: "brew_prefix.stdout == ''"
+
+- shell: cd {{ brew_prefix.stdout }} && git log -n1 --format="%at"
+  register: brew_last_updated
+  changed_when: false
+
+# - name: Homebrew | Update index
+#   sudo: false
+#   shell: brew update
+#   when: "brew_last_updated.stdout > 1414958467"

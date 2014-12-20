@@ -1,0 +1,3 @@
+---
+- include: ansible.yml    tags=mac_base,ansible
+- include: packages.yml   tags=mac_base,packages

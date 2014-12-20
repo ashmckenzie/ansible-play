@@ -1,0 +1,17 @@
+---
+homebrew:
+  cache_valid_time: 3600
+  packages_to_remove: []
+  additional_packages_to_install: []
+  packages_to_install:
+    - zsh
+    - tmux
+    - vim
+    - git
+    - python
+    - tig
+    - ack-grep
+    - mutt
+    - nmap
+    - wget
+    - htop

@@ -2,4 +2,4 @@
 - hosts: linux
   sudo: true
   roles:
-    - security
+    - linux/security

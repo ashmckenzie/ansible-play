@@ -1,0 +1,10 @@
+---
+- command: brew outdated
+  register: packages
+  changed_when: false
+
+- debug: var=packages.stdout_lines
+  changed_when: "packages.stdout_lines.__len__() > 0"
+
+- script: ../../scripts/mac_package_updates_available.sh \"{{ ansible_hostname }}\" \"{{ packages.stdout }}\"
+  when: "packages.stdout_lines.__len__() > 0"
