@@ -3,7 +3,8 @@
   sudo: true
   roles:
     - common
-    - linux/maintenance
+    - ../roles/linux/common
+    - ../roles/linux/maintenance
   tasks:
-    - include: tasks/packages_updates_available.yml
-    - include: tasks/reboot_required.yml
+    - include: tasks/linux/packages_updates_available.yml
+    - include: tasks/linux/reboot_required.yml

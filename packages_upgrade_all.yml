@@ -3,5 +3,6 @@
   sudo: true
   roles:
     - common
+    - ../roles/linux/common
   tasks:
-    - include: tasks/packages_upgrade_all.yml
+    - include: tasks/linux/packages_upgrade_all.yml
