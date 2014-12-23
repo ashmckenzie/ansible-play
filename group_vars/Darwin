@@ -10,6 +10,7 @@ homebrew:
   additional_packages_to_install: []
   packages_to_install:
     - coreutils
+    - ack
     - zsh
     - tmux
     - vim
