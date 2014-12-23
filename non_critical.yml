@@ -2,15 +2,20 @@
 - hosts: linux
   sudo: true
   roles:
+    - common
+    - ../roles/linux/common
     - ../roles/linux/base
 
-- hosts: linux
+- hosts: web
   sudo: true
   roles:
+    - common
     - ../roles/linux/web
     - ../roles/linux/rails
 
 - hosts: mac
   sudo: true
   roles:
+    - common
+    - ../roles/mac/common
     - ../roles/mac/base

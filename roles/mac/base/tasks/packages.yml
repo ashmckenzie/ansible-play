@@ -1,15 +1,15 @@
 ---
 - name: Packages | Install essential packages
   sudo: false
-  homebrew: name={{ item }} state=present
+  homebrew: name={{ item }} state=present path={{ homebrew.path }}
   with_items: homebrew.packages_to_install
 
 - name: Packages | Install additional packages
   sudo: false
-  homebrew: name={{ item }} state=present
+  homebrew: name={{ item }} state=present path={{ homebrew.path }}
   with_items: homebrew.additional_packages_to_install
 
 - name: Packages | Remove undesirable packages
   sudo: false
-  homebrew: name={{ item }} state=absent
+  homebrew: name={{ item }} state=absent path={{ homebrew.path }}
   with_items: homebrew.packages_to_remove

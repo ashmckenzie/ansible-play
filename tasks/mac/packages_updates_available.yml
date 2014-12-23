@@ -1,10 +1,10 @@
 ---
-- command: brew outdated
+- command: "{{ homebrew.path }}/brew outdated"
   register: packages
   changed_when: false
 
 - debug: var=packages.stdout_lines
   changed_when: "packages.stdout_lines.__len__() > 0"
 
-- script: ../../scripts/mac_package_updates_available.sh \"{{ ansible_hostname }}\" \"{{ packages.stdout }}\"
+- script: ../../scripts/mac_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ packages.stdout }}\"
   when: "packages.stdout_lines.__len__() > 0"

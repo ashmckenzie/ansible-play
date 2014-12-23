@@ -1,9 +1,11 @@
 ---
 homebrew:
+  path: /usr/local/bin
   cache_valid_time: 3600
   packages_to_remove: []
   additional_packages_to_install: []
   packages_to_install:
+    - coreutils
     - zsh
     - tmux
     - vim
@@ -17,3 +19,9 @@ homebrew:
     - htop
     - rbenv
     - ruby-build
+    - minicom
+    - openssh
+    - pstree
+    - mtr
+    - multitail
+    - unrar

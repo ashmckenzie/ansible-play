@@ -6,3 +6,11 @@
     - ../roles/linux/common
   tasks:
     - include: tasks/linux/packages_upgrade_all.yml
+
+- hosts: mac
+  sudo: false
+  roles:
+    - common
+    - ../roles/mac/common
+  tasks:
+    - include: tasks/mac/packages_upgrade_all.yml

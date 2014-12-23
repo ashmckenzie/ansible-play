@@ -1,7 +1,7 @@
 ---
 - name: Ansible | Install Python
   sudo: false
-  homebrew: name=python state=present
+  homebrew: name=python state=present path={{ homebrew.path }}
 
 - stat: path=/usr/local/bin/pip
   register: pip_installed

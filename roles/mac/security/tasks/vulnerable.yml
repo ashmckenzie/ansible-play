@@ -1,0 +1,22 @@
+---
+- name: Vulnerable | Bash shellshock | Check if vulnerable
+  sudo: false
+  shell: curl -s https://shellshocker.net/shellshock_test.sh | bash
+  ignore_errors: true
+  register: bash_shellshock_vulnerable
+  changed_when: false
+
+- script: ../../scripts/mac_sendmail.sh \"Bash is potentially vulnerable on {{ ansible_hostname }}\" \"{{ bash_shellshock_vulnerable.stdout }}\"
+  when: "bash_shellshock_vulnerable.rc != 0"
+
+- name: Vulnerable | Bash shellshock | Apply security update if we are vulnerable
+  homebrew: name=bash state=latest path={{ homebrew.path }}
+  when: "bash_shellshock_vulnerable.rc != 0"
+
+- name: Vulnerable | Bash shellshock | Double check if vulnerable
+  shell: curl -s https://shellshocker.net/shellshock_test.sh | bash > /dev/null 2>&1
+  when: "bash_shellshock_vulnerable.rc != 0"
+  ignore_errors: true
+  register: bash_shellshock_vulnerable
+  changed_when: "bash_shellshock_vulnerable.rc != 0"
+  failed_when: "bash_shellshock_vulnerable.rc != 0"

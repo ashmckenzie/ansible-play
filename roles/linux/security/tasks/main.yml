@@ -1,5 +1,5 @@
 ---
-- include: vulnerable.yml                                tags=security,vulnerable
-- include: kernel.yml                                    tags=security,kernel
-- include: ../../../../tasks/linux/reboot_required.yml   tags=security
-- include: apt.yml                                       tags=security,apt
+- include: vulnerable.yml                                tags=linux_security,vulnerable
+- include: kernel.yml                                    tags=linux_security,kernel
+- include: ../../../../tasks/linux/reboot_required.yml   tags=linux_security
+- include: apt.yml                                       tags=linux_security,apt

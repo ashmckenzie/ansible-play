@@ -10,7 +10,7 @@
 - hosts: mac
   sudo: true
   roles:
-    - common
+  - common
     - ../roles/mac/common
   tasks:
     - include: tasks/mac/packages_updates_available.yml

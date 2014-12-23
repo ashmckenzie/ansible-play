@@ -2,9 +2,15 @@
 - hosts: linux
   sudo: true
   roles:
-    - common
-    - ../roles/linux/common
     - ../roles/linux/maintenance
   tasks:
     - include: tasks/linux/packages_updates_available.yml
     - include: tasks/linux/reboot_required.yml
+
+- hosts: mac
+  sudo: false
+  roles:
+    - ../roles/mac/maintenance
+  tasks:
+    - include: tasks/mac/packages_updates_available.yml
+

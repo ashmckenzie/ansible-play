@@ -1,5 +1,5 @@
 ---
-- command: brew --prefix
+- command: "{{ homebrew.path }}/brew --prefix"
   register: brew_prefix
   changed_when: false
 
@@ -11,7 +11,7 @@
   register: brew_last_updated
   changed_when: false
 
-# - name: Homebrew | Update index
-#   sudo: false
-#   shell: brew update
+- name: Homebrew | Update index
+  sudo: false
+  shell: "{{ homebrew.path }}/brew update"
 #   when: "brew_last_updated.stdout > 1414958467"
