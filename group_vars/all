@@ -13,4 +13,4 @@ ansible_pull:
   non_critical_playbook: non_critical.yml
   daily_playbook: daily.yml
   logfile: /var/log/ansible-pull.log
-  repo_url: https://github.com/ashmckenzie/ansible-play.git
+  repo_url: https://github.com/ashmckenzie/ansible-playbooks.git
