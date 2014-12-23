@@ -1,6 +1,6 @@
 ---
-- cron: name="Critical" minute="*/15" user="{{ ansible_pull.cron_user }}" job="{{ ansible_pull.prefix }}/ansible-pull -d {{ ansible.workdir }}/critical -U {{ ansible_pull.repo_url }} {{ ansible_pull.critical_playbook }} >>{{ ansible_pull.logfile }} 2>&1"
+- cron: name="Critical" minute="*/30" user="{{ ansible_pull.cron_user }}" job="{{ ansible_pull.prefix }}/ansible-pull -d {{ ansible.workdir }}/critical -U {{ ansible_pull.repo_url }} {{ ansible_pull.critical_playbook }} >>{{ ansible_pull.logfile }} 2>&1"
 
-- cron: name="Non critical" minute="*/30" user="{{ ansible_pull.cron_user }}" job="{{ ansible_pull.prefix }}/ansible-pull -d {{ ansible.workdir }}/critical -U {{ ansible_pull.repo_url }} {{ ansible_pull.non_critical_playbook }} >>{{ ansible_pull.logfile }} 2>&1"
+- cron: name="Non critical" minute="0" user="{{ ansible_pull.cron_user }}" job="{{ ansible_pull.prefix }}/ansible-pull -d {{ ansible.workdir }}/critical -U {{ ansible_pull.repo_url }} {{ ansible_pull.non_critical_playbook }} >>{{ ansible_pull.logfile }} 2>&1"
 
 - cron: name="Daily" minute="30" hour="6" user="{{ ansible_pull.cron_user }}" job="{{ ansible_pull.prefix }}/ansible-pull -d {{ ansible.workdir }}/critical -U {{ ansible_pull.repo_url }} {{ ansible_pull.daily_playbook }} >>{{ ansible_pull.logfile }} 2>&1"
