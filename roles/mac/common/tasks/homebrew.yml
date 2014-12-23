@@ -1,5 +1,6 @@
 ---
 - command: "{{ homebrew.path }}/brew --prefix"
+  sudo: false
   register: brew_prefix
   changed_when: false
 
@@ -8,6 +9,7 @@
   when: "brew_prefix.stdout == ''"
 
 - shell: cd {{ brew_prefix.stdout }} && git log -n1 --format="%at"
+  sudo: false
   register: brew_last_updated
   changed_when: false
 

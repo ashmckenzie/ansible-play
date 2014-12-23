@@ -1,3 +1,3 @@
 ---
 - name: APT | Setup unattended upgrades
-  template: src=templates/security/unattended_upgrades.j2 dest=/etc/apt/apt.conf.d/50unattended-upgrades owner=root group=root mode=0644
+  template: src=templates/unattended_upgrades.j2 dest=/etc/apt/apt.conf.d/50unattended-upgrades owner=root group=root mode=0644

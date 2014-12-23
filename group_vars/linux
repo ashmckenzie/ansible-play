@@ -1,4 +1,11 @@
 ---
+ansible:
+  group: root
+ansible_pull:
+  prefix: /usr/local/bin/
+  critical_schedule: '*/15 * * * *'
+  non_critical_schedule: '*/30 * * * *'
+  daily_schedule: '30 6 * * *'
 apt:
   cache_valid_time: 3600
   packages_to_remove: []

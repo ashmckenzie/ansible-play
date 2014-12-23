@@ -6,7 +6,7 @@
     - ../roles/linux/security
 
 - hosts: mac
-  sudo: false
+  sudo: true
   roles:
     - ../roles/mac/common
     - ../roles/mac/security

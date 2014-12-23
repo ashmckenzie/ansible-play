@@ -1,0 +1,24 @@
+---
+- stat: path=/usr/local/bin/pip
+  register: pip_installed
+  changed_when: false
+
+- name: Ansible | Install pip
+  shell: curl https://bootstrap.pypa.io/get-pip.py | python -
+  when: pip_installed.stat.exists == false
+
+- name: Ansible | Install ansible
+  pip: name=ansible version={{ ansible.version }} state=present
+
+- name: Ansible | Create /etc/ansible
+  file: path=/etc/ansible state=directory
+
+- name: Ansible | Create /etc/ansible/hosts
+  template: src=templates/ansible/hosts.j2 dest=/etc/ansible/hosts owner={{ ansible.owner }} group={{ ansible.group }} mode=0644
+
+- name: Ansible | Create work directory
+  file: path={{ ansible.workdir }}/{{ item }} state=directory owner={{ ansible.owner }} group={{ ansible.group }} mode=0751
+  with_items:
+    - critical
+    - non_critical
+    - daily

@@ -1,4 +1,8 @@
 ---
+ansible:
+  group: wheel
+ansible_pull:
+  prefix: /usr/local/bin
 homebrew:
   path: /usr/local/bin
   cache_valid_time: 3600

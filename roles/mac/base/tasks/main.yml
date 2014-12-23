@@ -1,3 +1,4 @@
 ---
-- include: ansible.yml    tags=mac_base,ansible
-- include: packages.yml   tags=mac_base,packages
+- include: ../../../../tasks/common/ansible.yml     tags=mac_base,ansible
+- include: ansible_pull.yml                         tags=mac_base,ansible_pull
+- include: packages.yml                             tags=mac_base,packages
