@@ -1,27 +1,27 @@
-[linux:children]
-home_linux
-digital_ocean
+[Linux:children]
+HomeLinux
+DigitalOcean
 
-[db:children]
-digital_ocean
+[DB:children]
+DigitalOcean
 
-[web:children]
-digital_ocean
+[Web:children]
+DigitalOcean
 
-[mac:children]
-mac_home
+[Darwin:children]
+DarwinHome
 
-[mac_home]
-imac.local
-5146-amckenzie.local
+[DarwinHome]
+imac
+5146-amckenzie
 
-[digital_ocean]
+[DigitalOcean]
 ssh.the-rebellion.net
 ssh.hilander.io
 
-[raspbian]
+[Raspbian]
 raspberrypi
 
-[home_linux]
+[HomeLinux]
 raspberrypi
 media-centre

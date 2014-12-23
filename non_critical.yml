@@ -1,18 +1,16 @@
 ---
-- hosts: linux
+- hosts: Linux
   sudo: true
   roles:
     - ../roles/linux/base
 
-- hosts: web
+- hosts: Web
   sudo: true
   roles:
-    - common
     - ../roles/linux/web
     - ../roles/linux/rails
 
-- hosts: mac
+- hosts: Darwin
   sudo: true
   roles:
-    - common
     - ../roles/mac/base

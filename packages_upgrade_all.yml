@@ -1,5 +1,5 @@
 ---
-- hosts: linux
+- hosts: Linux
   sudo: true
   roles:
     - common
@@ -7,7 +7,7 @@
   tasks:
     - include: tasks/linux/packages_upgrade_all.yml
 
-- hosts: mac
+- hosts: Darwin
   sudo: false
   roles:
     - common
