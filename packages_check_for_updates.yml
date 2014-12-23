@@ -3,14 +3,14 @@
   sudo: true
   roles:
     - common
-    - ../roles/linux/common
+    - ../roles/Linux/common
   tasks:
-    - include: tasks/linux/packages_updates_available.yml
+    - include: tasks/Linux/packages_updates_available.yml
 
 - hosts: Darwin
   sudo: true
   roles:
     - common
-    - ../roles/mac/common
+    - ../roles/Darwin/common
   tasks:
-    - include: tasks/mac/packages_updates_available.yml
+    - include: tasks/Darwin/packages_updates_available.yml

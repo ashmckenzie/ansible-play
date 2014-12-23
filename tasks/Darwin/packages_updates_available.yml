@@ -6,5 +6,5 @@
 - debug: var=packages.stdout_lines
   changed_when: "packages.stdout_lines.__len__() > 0"
 
-- script: ../../scripts/mac_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ packages.stdout }}\"
+- script: ../../scripts/darwin_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ packages.stdout }}\"
   when: "packages.stdout_lines.__len__() > 0"

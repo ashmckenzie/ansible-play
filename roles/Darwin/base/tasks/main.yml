@@ -1,0 +1,4 @@
+---
+- include: ../../../../tasks/common/ansible.yml     tags=darwin_base,ansible
+- include: ansible_pull.yml                         tags=darwin_base,ansible_pull
+- include: packages.yml                             tags=darwin_base,packages

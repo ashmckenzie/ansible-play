@@ -1,3 +1,0 @@
----
-- name: Sendmail | Copy mac_sendmail.sh
-  copy: src=../../../../scripts/mac_sendmail.sh dest=/usr/local/bin/mac_sendmail.sh owner=root group=admin mode=0755

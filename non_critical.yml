@@ -2,15 +2,15 @@
 - hosts: Linux
   sudo: true
   roles:
-    - ../roles/linux/base
+    - ../roles/Linux/base
 
 - hosts: Web
   sudo: true
   roles:
-    - ../roles/linux/web
-    - ../roles/linux/rails
+    - ../roles/Linux/web
+    - ../roles/Linux/rails
 
 - hosts: Darwin
   sudo: true
   roles:
-    - ../roles/mac/base
+    - ../roles/Darwin/base

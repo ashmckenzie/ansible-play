@@ -2,11 +2,11 @@
 - hosts: Linux
   sudo: true
   roles:
-    - ../roles/linux/common
-    - ../roles/linux/security
+    - ../roles/Linux/common
+    - ../roles/Linux/security
 
 - hosts: Darwin
   sudo: true
   roles:
-    - ../roles/mac/common
-    - ../roles/mac/security
+    - ../roles/Darwin/common
+    - ../roles/Darwin/security

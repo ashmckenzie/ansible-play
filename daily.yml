@@ -2,15 +2,15 @@
 - hosts: Linux
   sudo: true
   roles:
-    - ../roles/linux/maintenance
+    - ../roles/Linux/maintenance
   tasks:
-    - include: tasks/linux/packages_updates_available.yml
-    - include: tasks/linux/reboot_required.yml
+    - include: tasks/Linux/packages_updates_available.yml
+    - include: tasks/Linux/reboot_required.yml
 
 - hosts: Darwin
   sudo: true
   roles:
-    - ../roles/mac/maintenance
+    - ../roles/Darwin/maintenance
   tasks:
-    - include: tasks/mac/packages_updates_available.yml
+    - include: tasks/Darwin/packages_updates_available.yml
 

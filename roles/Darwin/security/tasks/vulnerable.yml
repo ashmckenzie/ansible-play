@@ -6,7 +6,7 @@
   register: bash_shellshock_vulnerable
   changed_when: false
 
-- script: ../../scripts/mac_sendmail.sh \"Bash is potentially vulnerable on {{ ansible_hostname }}\" \"{{ bash_shellshock_vulnerable.stdout }}\"
+- script: ../../scripts/darwin_sendmail.sh \"Bash is potentially vulnerable on {{ ansible_hostname }}\" \"{{ bash_shellshock_vulnerable.stdout }}\"
   when: "bash_shellshock_vulnerable.rc != 0"
 
 - name: Vulnerable | Bash shellshock | Apply security update if we are vulnerable

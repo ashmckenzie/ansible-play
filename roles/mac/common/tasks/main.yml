@@ -1,3 +1,0 @@
----
-- include: homebrew.yml   tags=mac_common,homebrew
-- include: sendmail.yml   tags=mac_common,sendmail
