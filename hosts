@@ -12,12 +12,12 @@ DigitalOcean
 DarwinHome
 
 [DarwinHome]
-imac
-5146-amckenzie
+imac.local
+5146-amckenzie.local
 
 [DigitalOcean]
-ssh.the-rebellion.net
-ssh.hilander.io
+the-rebellion
+hilander
 
 [Raspbian]
 raspberrypi

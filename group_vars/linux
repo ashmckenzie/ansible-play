@@ -34,6 +34,7 @@ apt:
     - mutt
     - apt-transport-https
     - ntp
+    - ntpdate
     - zsh
     - rsnapshot
     - nmap
