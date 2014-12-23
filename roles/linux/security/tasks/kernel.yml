@@ -1,6 +1,0 @@
----
-- name: Kernel | Ensure kernel up-to-date
-  apt: name={{ kernel.image_name }} state=latest
-
-- name: Kernel | Ensure kernel headers up-to-date
-  apt: name={{ kernel.headers_name }} state=latest

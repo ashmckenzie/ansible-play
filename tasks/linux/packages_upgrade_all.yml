@@ -1,3 +1,0 @@
----
-- name: Packages upgrade all | Upgrade packages
-  apt: upgrade="full"

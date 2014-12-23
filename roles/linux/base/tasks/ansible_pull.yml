@@ -1,6 +1,0 @@
----
-- name: Ansible Pull | Create crontab
-  template: src=ansible/cron.j2 dest=/etc/cron.d/ansible-pull owner=root group=root mode=0644
-
-- name: Ansible Pull | Create logrotate config
-  template: src=ansible/logrotate.j2 dest=/etc/logrotate.d/ansible-pull owner=root group=root mode=0644
