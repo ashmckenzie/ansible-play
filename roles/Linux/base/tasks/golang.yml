@@ -1,0 +1,17 @@
+- stat: path=/usr/local/{{ golang.short_version }}
+  changed_when: false
+  register: go_installed
+
+- name: Golang | Download
+  get_url: url={{ golang.base_url }}{{ golang.full_version }}.tar.gz dest=/tmp/go.{{ golang.full_version }}tar.gz
+  when: go_installed.stat.exists == false
+
+- name: Golang | Install
+  shell: cd /tmp ; rm -rf go ; tar xzf go.{{ golang.full_version }}tar.gz ; mv go /usr/local/{{ golang.short_version }}
+  when: go_installed.stat.exists == false
+
+- name: Golang | Symlink go directory
+  file: src=/usr/local/{{ golang.short_version }} dest=/usr/local/go state=link
+
+- name: Golang | Symlink go binary
+  file: src=/usr/local/go/bin/go dest=/usr/local/bin/go state=link

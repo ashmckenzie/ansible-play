@@ -1,0 +1,3 @@
+---
+- include: nginx.yml      tags=web,nginx
+- include: haproxy.yml    tags=web,haproxy

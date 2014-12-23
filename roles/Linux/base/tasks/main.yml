@@ -1,0 +1,6 @@
+---
+- include: ../../../../tasks/common/ansible.yml     tags=linux_base,ansible
+- include: ansible_pull.yml                         tags=linux_base,ansible_pull
+- include: postfix.yml                              tags=linux_base,postfix
+- include: packages.yml                             tags=linux_base,packages
+- include: golang.yml                               tags=linux_base,golang

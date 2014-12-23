@@ -1,0 +1,4 @@
+---
+- name: Postfix | Install
+  apt: name=postfix state=present
+  notify: restart postfix
