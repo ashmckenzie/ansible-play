@@ -30,3 +30,4 @@ homebrew:
     - mtr
     - multitail
     - unrar
+    - ctail

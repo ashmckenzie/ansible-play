@@ -8,3 +8,14 @@
 
 - script: ../../scripts/darwin_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ packages.stdout }}\"
   when: "packages.stdout_lines.__len__() > 0"
+
+- command: /usr/sbin/softwareupdate -l
+  register: updates
+  changed_when: false
+
+- debug: var=updates.stdout_lines
+  changed_when: "updates.stdout_lines.__len__() > 0"
+  # Software Update found the following new or updated software:
+
+- script: ../../scripts/darwin_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ updates.stdout }}\"
+  when: "updates.stdout_lines.__len__() > 0"
