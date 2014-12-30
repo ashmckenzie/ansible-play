@@ -1,5 +1,6 @@
 [Linux:children]
 HomeLinux
+HomeRaspbian
 DigitalOcean
 
 [DB:children]
@@ -7,6 +8,7 @@ DigitalOcean
 
 [Web:children]
 DigitalOcean
+HomeUbuntu
 
 [Darwin:children]
 DarwinHome
@@ -20,8 +22,12 @@ macbook-air.local
 the-rebellion
 hilander
 
-[Raspbian]
+[HomeRaspbian]
 raspberrypi
+raspberrypi-internal
+
+[HomeUbuntu]
+media-centre
 
 [HomeLinux]
 raspberrypi

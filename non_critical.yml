@@ -8,7 +8,7 @@
   sudo: true
   roles:
     - ../roles/Linux/web
-    - ../roles/Linux/rails
+    - ../roles/Linux/ruby
 
 - hosts: Darwin
   sudo: true

@@ -1,5 +1,5 @@
 ---
 golang:
   base_url: https://storage.googleapis.com/golang/go
-  full_version: 1.3.3.linux-amd64
-  short_version: 1.3.3
+  full_version: 1.4.linux-amd64
+  short_version: 1.4

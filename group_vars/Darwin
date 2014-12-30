@@ -10,24 +10,25 @@ homebrew:
   additional_packages_to_install: []
   packages_to_install:
     - coreutils
-    - ack
     - zsh
+    - openssh
+    - htop
+    - ack
     - tmux
     - vim
     - git
-    - python
     - tig
-    - ack
+    - python
+    - go
     - mutt
     - nmap
     - wget
-    - htop
     - rbenv
     - ruby-build
     - minicom
-    - openssh
     - pstree
     - mtr
     - multitail
     - unrar
     - ctail
+    - postgresql

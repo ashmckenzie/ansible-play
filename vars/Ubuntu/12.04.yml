@@ -1,4 +1,3 @@
 ---
 ruby:
-  version: 2.1.5-1bbox1~precise1
-  bundler_version: 1.7.3
+  version: 2.2.0-1bbox1~precise1
