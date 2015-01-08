@@ -13,9 +13,8 @@
   register: updates
   changed_when: false
 
-- debug: var=updates.stdout_lines
-  changed_when: "updates.stdout_lines.__len__() > 0"
-  # Software Update found the following new or updated software:
+- debug: var=updates.stderr_lines
+  when: "'No new software available' not in updates.stderr"
 
-- script: ../../scripts/darwin_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ updates.stdout }}\"
-  when: "updates.stdout_lines.__len__() > 0"
+- script: ../../scripts/darwin_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ updates.stderr }}\"
+  when: "'No new software available' not in updates.stderr"
