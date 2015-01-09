@@ -1,0 +1,28 @@
+---
+
+- shell: rbenv version | awk '{ print $1 }'
+  sudo: false
+  ignore_errors: true
+  changed_when: false
+  register: ruby_version
+
+- name: Ruby | Install latest
+  sudo: false
+  shell: "rbenv install {{ ruby.base_version }}"
+  when: ruby_version.stdout != "{{ ruby.base_version }}"
+
+- name: Ruby | Set latest
+  sudo: false
+  shell: "rbenv global {{ ruby.base_version }}"
+  when: ruby_version.stdout != "{{ ruby.base_version }}"
+
+- shell: $(rbenv which gem) list -i bundler --version {{ ruby.bundler_version }}
+  sudo: false
+  ignore_errors: true
+  changed_when: false
+  register: bundler_installed
+
+- name: Ruby | Install Bundler
+  sudo: false
+  shell: $(rbenv which gem) install bundler -v={{ ruby.bundler_version }}
+  when: "bundler_installed.rc != 0"
