@@ -1,2 +1,2 @@
 ---
-- include: vulnerable.yml   tags=darwin_security,vulnerable
+# - include: vulnerable.yml   tags=darwin_security,vulnerable
