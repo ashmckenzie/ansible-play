@@ -1,0 +1,8 @@
+---
+kernel:
+  image_name: linux-image-3.12-1-rpi
+  headers_name: linux-headers-3.12-1-rpi
+golang:
+  base_url: http://dave.cheney.net/paste/go
+  full_version: 1.4.linux-arm~multiarch-armv6-1
+  short_version: 1.4

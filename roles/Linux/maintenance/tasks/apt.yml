@@ -3,5 +3,4 @@
   shell: apt-get clean
 
 - name: Maintenance | APT autoremove
-  shell: apt-get autoremove
-
+  shell: apt-get autoremove -y

@@ -4,13 +4,13 @@
   roles:
     - ../roles/Linux/base
 
+- hosts: Darwin
+  sudo: true
+  roles:
+    - ../roles/Darwin/base
+
 - hosts: Web
   sudo: true
   roles:
     - ../roles/Linux/web
     - ../roles/Linux/ruby
-
-- hosts: Darwin
-  sudo: true
-  roles:
-    - ../roles/Darwin/base
