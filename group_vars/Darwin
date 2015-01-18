@@ -32,6 +32,7 @@ homebrew:
     - ctail
     - unrar
     - postgresql
+    - jq
 ruby:
   base_version: 2.2.0
   bundler_version: 1.7.10
