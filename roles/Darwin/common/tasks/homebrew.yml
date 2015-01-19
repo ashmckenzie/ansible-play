@@ -8,6 +8,11 @@
   shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   when: "brew_prefix.stdout == ''"
 
+- name: Homebrew | Taps
+  sudo: false
+  shell: brew tap {{ item }}
+  with_items: homebrew.taps
+
 - shell: cd {{ brew_prefix.stdout }} && git log -n1 --format="%at"
   sudo: false
   register: brew_last_updated
