@@ -1,20 +1,26 @@
 ---
-- command: "{{ homebrew.path }}/brew outdated"
+- name: Updates | Look for homebrew updates
+  command: "{{ homebrew.path }}/brew outdated"
   register: packages
   changed_when: false
 
-- debug: var=packages.stdout_lines
+- name: Updates | homebrew updates (if available)
+  debug: var=packages.stdout_lines
   changed_when: "packages.stdout_lines.__len__() > 0"
 
-- script: ../../scripts/darwin_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ packages.stdout }}\"
+- name: Updates | Email homebrew updates (if available)
+  script: ../../scripts/darwin_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ packages.stdout }}\"
   when: "packages.stdout_lines.__len__() > 0"
 
-- command: /usr/sbin/softwareupdate -l
+- name: Updates | Look for MacOS X updates
+  command: /usr/sbin/softwareupdate -l
   register: updates
   changed_when: false
 
-- debug: var=updates.stderr_lines
-  when: "'No new software available' not in updates.stderr"
+- name: Updates | MacOS X updates (if available)
+  debug: var=updates.stdout_lines
+  when: "'No new software available' not in updates.stdout"
 
-- script: ../../scripts/darwin_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ updates.stderr }}\"
-  when: "'No new software available' not in updates.stderr"
+- name: Updates | Email MacOS X updates (if available)
+  script: ../../scripts/darwin_sendmail.sh \"Updates available for {{ ansible_hostname }}\" \"{{ updates.stdout }}\"
+  when: "'No new software available' not in updates.stdout"
