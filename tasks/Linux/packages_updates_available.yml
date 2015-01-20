@@ -1,15 +1,18 @@
 ---
-- name: Updates available | Install apt-show-versions
+- name: Updates | Install apt-show-versions
   apt: name=apt-show-versions state=present
 
-- command: /usr/bin/apt-show-versions -u
+- name: Updates | Determine updates
+  command: /usr/bin/apt-show-versions -u
   register: packages
   changed_when: false
 
-- debug: var=packages.stdout_lines
+- name: Updates | Updates (if available)
+  debug: var=packages.stdout_lines
   changed_when: "packages.stdout_lines.__len__() > 0"
 
-- action: mail
+- name: Updates | Email updates (if available)
+  action: mail
     subject="Updates available for {{ ansible_hostname }}"
     body="{{ packages.stdout }}"
     from="Ansible <admin@the-rebellion.net>"
