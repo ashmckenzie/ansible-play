@@ -11,6 +11,7 @@ homebrew:
   taps:
     - homebrew/dupes
   packages_to_install:
+    - watch
     - coreutils
     - zsh
     - openssh
